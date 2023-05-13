@@ -8,7 +8,7 @@ function potenciacion(base, potencia) {
          numero = numero * base;
          numero = numero;
         };
-console.log('el resultado es '+ numero);       
+//console.log('el resultado es '+ numero);       
 };
 potenciacion(5, 4);
 
@@ -35,10 +35,7 @@ function  sumadecubos(a, b, c) {
             numero3 = numero3;
         };
         let total = numero1 + numero2 + numero3;        
-        console.log(numero1);
-        console.log(numero2);
-        console.log(numero3);
-        console.log('la suma de los cubos es ' + total);
+     // console.log('la suma de los cubos es ' + total);
 };
 sumadecubos(1, 5, 9);
 
@@ -50,33 +47,27 @@ sumadecubos(1, 5, 9);
 
 const personal = (nombre,apellido,edad) => 'Hola mi nombre es '+nombre+' y mi apellido es '+apellido+' y mi edad es '+edad;
 
-console.log(personal("Sebastian","Yabiku",33));
+//console.log(personal("Sebastian","Yabiku",33));
 
 // PREGUNTA 4 :
 // Crear una funcionquer reciba n cantidad de argumentos y los sume )utilizar parametros
 // rest)
 
 
-function sumaparametro(a, b,...rest) {
-     console.log(a,b,...rest);
+function sumaparametro(...rest) {
+     let suma = 0 ;
+     for ( let i=0; i<rest.length ; i++) {
+          suma = suma + rest[i];
+     }
+     return suma;
 };
-sumaparametro("Luis","Blas",27,"Contador","Titulado");
+console.log(sumaparametro(10,20,30,40,50));
+
 
 // PREGUNTA 5 :
 // Crear una funcion que reciba un array de valores y filtre los que no son string.
 
 
-let array1 = ["juan","cabello","hector",50];
-//function valores(array1) {
-     console.log(array1);          
-     console.log(array1.length);
-     console.log(array1[3]);
-               
-  // if  i<=array[i] && nombre === 
-//f cadena = "" {
- 
-   // else {
- //
 
 
 
@@ -88,37 +79,60 @@ let array1 = ["juan","cabello","hector",50];
 
 
 
-//let n = [1,2,3,4,5];
-//function minMax(numeros) {
- //    if n[0]<n[1] && n[0]<n[2] && n[0]<n[3] && n[0]<n[4] && n[0]<n[5] {
-   //       con
 
 
 
-     
-  
 
 // PREGUNTA 7 :
 // Escriba una funcion que tome un array de 10 enteros  (entre 0 y 9)
 // y devuelva una cadena en formade un numero de telefono
 // formatPhoneNumber([1,2,3,4,5,6,7,8,9]) -> "(123) 456-7890"
 
-//let numero = [1,2,3,4,5,6,7,8,9,0];
-//function numerotelefono(numero){
-      
-  //    for ( let i=0 ; i<=0 ; i++ ) {
-    //      console.log(numero[0]+numero[1]+numero[2]) ; 
-          //+arrray[1]+array[2]'
-                                          
-     //return ('array[01]+arrray[1]+array[2]');
-   //   };
-//};
-//console.log(numero)
-//console.log(n);
+
+
+// PREGUNTA 8 :
+// Dada una palabra  escriba  una funcion devuelva el primer indice y el ultimo
+// indice de un caracter.
+// charIndex("hello","l") -> [2,3]
+// the first "l" has index 2, the "c" has index 3.
+//
+// charIndex("circumlocution","c") -> [0,8]
+// the first "c" has index 2, the "c" has index 8.
+
+function primerUltimo(palabra,caracter) {
+     
+     let primerIndice= palabra.indexOf(caracter);
+     let ultimoIndice = palabra.lastIndexOf(caracter);
+     return [primerIndice,ultimoIndice];
+};
+
+ console.log(primerUltimo("pachacutec","c"));
 
 
 
 
+
+
+ 
+// PREGUNTA 10 :
+// Crea una funcion que tome unn array de estudiantes y devuelva un array de nombres 
+// de estudiantes.
+// getStudentNames( [
+//   { name : "steve"}
+//   { name : "mike"}
+//   { name : "john"} ]
+//   ->["steve","mike","john"]
+
+
+function estudiantes(datos) {
+   nuevoArray = [];
+   for ( let i=0 ; i<datos.length; i++ ) {
+          nuevoArray.push(datos[i].name);
+   };
+   return nuevoArray;
+};
+let datos = [{name : "Luis"},{name : "miguel"},{name : "bryan"}];
+console.log(estudiantes(datos));
 
 
 // PREGUNTA 11 :
@@ -132,7 +146,7 @@ function sumacuadrados (base) {
       numero = numero + (i * i);
       numero = numero;
      };
-console.log('la suma de los cuadrados de los numeros del 1 al '+ base + ' es '+ numero);       
+//console.log('la suma de los cuadrados de los numeros del 1 al '+ base + ' es '+ numero);       
 };
 sumacuadrados(6);
 
@@ -142,25 +156,35 @@ sumacuadrados(6);
 // multiplyByLength([2,3,1,0]) -> [8,12,4,0]
 
 
-let arrayNum = [2,3,1,0];
 function multiplicar(arrayNum) {
-    // let arrayNum = [2,3,1,0];
-     let numero = arrayNum;
-      for ( let i = 0; i <= arrayNum.length-1; i++ ) {
-      numero = arrayNum[i]* arrayNum.length-1;
-      console.log(arrayNum[i]);
-      numero = arrayNum[i];
+     let numeroElemento= arrayNum.length;
+     let newArray = [];
+     for ( let i = 0; i < arrayNum.length; i++ ) {
+          newArray.push(arrayNum[i] * numeroElemento);
+          console.log(newArray)
      };
-multiplicar(arrayNum);
-//console.log('['+numero[0]+','+numero[1]+','+numero[2]+''+numero[3]);       
+     return newArray;
+};
+let arrayNum = [2,3,1];
+//console.log(multiplicar(arrayNum));
+
+
+// Pregunta 13 :
+// Cree una funcion que tome un numero como argumento
+// y devuelva una matriz de numeros contando desde este numero a cero.
+// countdown(5) -> [5,4,3,2,1]
+
+
+function contDown(num) {
+     let nArray = [];
+     
+     for ( let i = num; i >= 1; i-- ) {
+          nArray.push(i);
+     };
+     return nArray;
 };
 
-
-
-
-
-
-
+//console.log(contDown(7));
 
 
 
